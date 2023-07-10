@@ -1,13 +1,22 @@
-public class Car {
+public class Car extends Unit implements EngineService {
 
-    public String modelName;
-    public int wheelsCount;
-
-    public void updateTyre() {
-        System.out.println("Меняем покрышку");
+    public Car(int wheelsCount, String modelName) {
+        super(wheelsCount, modelName);
     }
 
+    @Override
+    public void service() {
+        standardService();
+        checkEngine();
+    }
+
+    @Override
+    public void updateTyre() {
+        System.out.println("Меняем покрышку машине");
+    }
+
+    @Override
     public void checkEngine() {
-        System.out.println("Проверяем двигатель");
+        System.out.println("Проверяем двигатель машине");
     }
 }

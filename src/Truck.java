@@ -1,17 +1,29 @@
-public class Truck {
+public class Truck extends Unit implements EngineService {
 
-    public String modelName;
-    public int wheelsCount;
 
-    public void updateTyre() {
-        System.out.println("Меняем покрышку");
+    public Truck(int wheelsCount, String modelName) {
+        super(wheelsCount, modelName);
     }
 
+    @Override
+    public void service() {
+        standardService();
+        checkEngine();
+        checkTrailer();
+    }
+
+    @Override
+    public void updateTyre() {
+        System.out.println("Меняем покрышку грузовику");
+    }
+
+
+    @Override
     public void checkEngine() {
-        System.out.println("Проверяем двигатель");
+        System.out.println("Проверяем двигатель грузовику");
     }
 
     public void checkTrailer() {
-        System.out.println("Проверяем прицеп");
+        System.out.println("Проверяем прицеп грузовику");
     }
 }
